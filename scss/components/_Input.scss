@@ -1,0 +1,129 @@
+.Input {
+    // Fix for custom elements
+    display: block;
+    position: relative;
+    // Reserve space for hidden elements
+    margin: em(18, 14) 0;
+    // Fix floats
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    &-field {
+        display: block;
+        resize: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: em(1) solid shade($grey, 10%);
+        outline: none;
+        background: none;
+        color: $black;
+        // Space for bold border
+        margin-bottom: em(1);
+        // Remove appearance for dropdowns
+        border-radius: 0;
+        appearance: none;
+        -moz-appearance: none; /** Firefox */
+        -webkit-appearance: none; /** Safari and Chrome */
+        &::-ms-expand {
+            display: none; /** IE 10+ and FF */
+        }
+        &--22px {
+            font-size: em(22, 14);
+        }
+        &--select {
+            background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTJweCIgaGVpZ2h0PSI3cHgiIHZpZXdCb3g9IjAgMCAxMiA3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHBvbHlnb24gZmlsbD0iIzlFOUU5RSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNi4wMDAwMDAsIDMuNTAwMDAwKSBzY2FsZSgxLCAtMSkgdHJhbnNsYXRlKC02LjAwMDAwMCwgLTMuNTAwMDAwKSAiIHBvaW50cz0iNiAwIDEyIDcgMCA3Ij48L3BvbHlnb24+Cjwvc3ZnPg==");
+            background-repeat: no-repeat;
+            background-position: 98% center;
+            background-size: 0.75em;
+            &:focus {
+                background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTJweCIgaGVpZ2h0PSI3cHgiIHZpZXdCb3g9IjAgMCAxMiA3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHBvbHlnb24gZmlsbD0iIzIzMUYyMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNi4wMDAwMDAsIDMuNTAwMDAwKSBzY2FsZSgxLCAtMSkgdHJhbnNsYXRlKC02LjAwMDAwMCwgLTMuNTAwMDAwKSAiIHBvaW50cz0iNiAwIDEyIDcgMCA3Ij48L3BvbHlnb24+Cjwvc3ZnPg==");
+            }
+
+        }
+        &:focus {
+            border-width: em(2);
+            border-color: $primary-color;
+            margin-bottom: 0;
+            & + .Input-label .Input-required {
+                color: $red;
+            }
+        }
+        /** If input value is invalid and dirty
+          * 1. Change border color to red;
+          * 2. Change label color to red;
+          */
+        &.ng-invalid.ng-dirty {
+            border-color: $red; /** 1 */
+            & + .Input-label {
+                color: $red; /** 2 */
+            }
+        }
+        // If input is either focused or dirty move the label
+        &:focus + .Input-label,
+        &.ng-not-empty + .Input-label,
+        &.ng-invalid.ng-not-empty + .Input-label,
+        &.isActive + .Input-label {
+            top: auto;
+            bottom: 100%;
+            font-size: em(12, 14);
+            line-height: em(18, 14);
+        }
+        &:focus + .Input-label {
+            color: $primary-color;
+        }
+        &:disabled {
+            border-bottom-style: dotted;
+            & + .Input-label:after {
+                content: '(Disabled)';
+                padding-left: 0.5rem;
+                /**
+                 * Overwrite in case of required and at the same time disabled field.
+                 */
+                color: shade($grey, 10%)!important;
+            }
+        }
+    }
+    &-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: shade($grey, 10%);
+        /**
+         * Fix for `<select>` elements
+         * Reference: https://developer.mozilla.org/en/docs/Web/CSS/pointer-events
+         */
+        pointer-events: none;
+        &--required {
+            &:after {
+                content: "*";
+                margin-left: em(5);
+                color: $red;
+            }
+        }
+    }
+    &-field,
+    &-label {
+        width: 100%;
+        font-size: em(16, 14);
+        padding: em(2) em(2) em(3);
+        // Small letters are too close to each other
+        letter-spacing: 0.02em;
+    }
+    &-errorSpacer {
+        float: right;
+        min-height: em(24, 14);
+        min-width: em(1, 14);
+    }
+    &-error,
+    &-desc {
+        padding: em(6) em(2) em(2);
+        font-size: em(12, 14);
+        line-height: em(18, 14);
+    }
+    &-error {
+        color: $red;
+    }
+}

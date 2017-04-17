@@ -1,0 +1,27 @@
+{
+  "name": "ng-multi-select-styles",
+  "version": "1.0.0",
+  "description": "Styles for a multi-select Angular component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frelseren/ng-multi-select-styles.git"
+  },
+  "author": "Nikita Verkhoshintcev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Frelseren/ng-multi-select-styles/issues"
+  },
+  "homepage": "https://github.com/Frelseren/ng-multi-select-styles#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-sass": "^3.1.0"
+  }
+}

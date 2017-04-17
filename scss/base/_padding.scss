@@ -1,0 +1,20 @@
+$xs: 0.5em;
+$s: 1.25em;
+$m: 2.5em;
+
+@include utilsGenerator((
+  classes:(
+    'paddingAll': (padding),
+    'paddingBottom': (padding-bottom),
+    'paddingLeft': (padding-left),
+    'paddingRight': (padding-right),
+    'paddingTop': (padding-top),
+    'paddingHorisontal': (padding-left, padding-right),
+    'paddingVertical': (padding-top,padding-bottom)
+  ),
+  values: (
+    'xs': $xs,
+    's': $s,
+    'm': $m,
+  ),
+));

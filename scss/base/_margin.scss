@@ -1,0 +1,20 @@
+$xs: 0.5em;
+$s: 1.25em;
+$m: 2.5em;
+
+@include utilsGenerator((
+  classes:(
+    'marginAll': (margin),
+    'marginBottom': (margin-bottom),
+    'marginLeft': (margin-left),
+    'marginRight': (margin-right),
+    'marginTop': (margin-top),
+    'marginHorisontal': (margin-left, margin-right),
+    'marginVertical': (margin-top,margin-bottom)
+  ),
+  values: (
+    'xs': $xs,
+    's': $s,
+    'm': $m,
+  ),
+));

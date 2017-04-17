@@ -1,0 +1,12 @@
+/// Browser context in pixels
+/// @access private
+/// @type Number
+$browser-context: 16;
+/// Convert pixel value to ems
+/// @access public
+/// @param {Number} $pixels - Pixel value to convert
+/// @param {Number} $context - Context, browser context by defaul
+/// @requires $browser-context
+@function em($pixels, $context: $browser-context) {
+  @return ($pixels / $context) * 1em;
+}

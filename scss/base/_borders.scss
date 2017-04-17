@@ -1,0 +1,13 @@
+@include utilsGenerator((
+  classes: (
+    'border': (border),
+    'borderBottom': (border-bottom),
+    'borderTop': (border-top),
+    'borderLeft': (border-left),
+    'borderRight': (border-right),
+  ),
+  values: (
+    1: 1px solid $grey,
+  ),
+  important: false,
+));

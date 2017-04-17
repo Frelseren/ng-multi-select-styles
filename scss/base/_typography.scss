@@ -1,0 +1,50 @@
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.text--italic {
+  font-style: italic;
+}
+
+.text--bold {
+  font-weight: 700;
+}
+.text--blue {
+  color: $blue;
+}
+.text--red {
+  color: $red;
+}
+
+.text--ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@include utilsGenerator((
+  classes: (
+    text: (text-align),
+  ),
+  values: (
+    center: center,
+    left: left,
+    right: right,
+    justify: justify
+  ),
+  responsive: true,
+  prefix: ".",
+  seperator: "--",
+));
+
+@include utilsGenerator((
+  classes: (
+    text: (font-size),
+  ),
+  values: (
+    '12px': em(12),
+    '14px': em(14),
+  ),
+  prefix: ".",
+  seperator: '--',
+));

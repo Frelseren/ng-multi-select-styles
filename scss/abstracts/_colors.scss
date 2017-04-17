@@ -1,0 +1,39 @@
+/// Color palette
+/// @access public
+$black: hsla(345, 6%, 13%, 1);
+$white: hsla(0, 100%, 100%, 1);
+$grey: hsla(168, 5%, 75%, 1);
+$purple: hsla(236, 95%, 67%, 1);
+$blue: hsla(206, 100%, 52%, 1);
+$green: hsla(100, 67%, 52%, 1);
+$yellow: hsla(51, 100%, 54%, 1);
+$orange: hsla(37, 100%, 50%, 1);
+$red: hsla(13, 100%, 55%, 1);
+/// Color tones
+$grey-dark: hsla(0, 0%, 15%, 1);
+$transparent: hsla(0, 100%, 100%, 0);
+$white-transparent: hsla(0, 100%, 100%, 0.8);
+$grey-dark-transparent: hsla(0, 0%, 15%, 0.6);
+$green-transparent: hsla(100, 67%, 52%, 0.9);
+$orange-transparent: hsla(37, 100%, 50%, 0.9);
+$red-transparent: hsla(13, 100%, 55%, 0.9);
+$grey-dark-transparent: hsla(0, 0%, 15%, 0.9);
+
+$primary-color: $blue;
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
